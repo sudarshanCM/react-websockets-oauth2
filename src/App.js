@@ -1,26 +1,37 @@
-import React from 'react';
+import React , { Component }from 'react';
 import logo from './logo.svg';
+import {BrowserRouter as Router,Route} from 'react-router-dom'
 import './App.css';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Register from './Components/Register'
+import Login from './Components/Login'
+import QuestionAnswer from './Components/QuestionAnswer'
+import Chat from './Components/Chat'
+import Join from './Components/Join'
+
+class App extends Component {
+  render() {
+    return (
+     
+      <Router>
+        
+        <div className="App">
+       
+          <Route exact path="/" component = {Login}/>
+          <div class="container">
+          <Route exact path="/join" component = {Join}/>
+          <Route exact path="/chat" component = {Chat}/>
+          <Route exact path="/register" component = {Register}/>
+          <Route exact path="/login" component = {Login}/>
+          <Route exact path="/questionanswer" component = {QuestionAnswer}/>
+          
+          </div>
+          </div>
+      </Router>
+    );
+  }
 }
+
 
 export default App;
